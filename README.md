@@ -1,21 +1,27 @@
 # Seguimento de Caminho
 
-Este repositório contém a implementação de diferentes métodos de seguimento de caminho para drones. Cada seção abaixo corresponde a uma abordagem específica, com uma breve descrição, um espaço reservado para explicações adicionais e links para as animações e imagens geradas.
-
+Este repositório contém a implementação de um método de seguimento de caminho para drones. Cada seção abaixo corresponde a um caminho gerado por diferentes métodos
 
 ---
 
-## circulo
+## Circulo e Lemniscata
 
-**Descrição:**  
-(Explique aqui o que esta pasta contém e seu propósito.)
+**Geração do caminho:**  
+Não existe nenhuma restrição de tempo para essa abordagem, foram gerados 1000 pontos que correspondem a um circulo e 1000 pontos para a lemniscata com variação de altura.
+
+![Imagem 1](circulo/circulo_lenminscata.png)  
 
 ### Animação/GIF
-![circulo](circulo/animation.gif)
+Seguimento do circulo representado graficamente. Detalhe para a orientação do drone simulado representado pelo eixo cordenado, em que Vermelho, Azul e Verde representam X,Y e Z respectivamente.
+![circulo](circulo/circulo.gif)
 
 ### Imagens
-![Imagem 1](circulo/image1.png)  
-![Imagem 2](circulo/image2.png)  
+Posições do seguimento em função do tempo
+![Imagem 1](circulo/Posicoes-circulo.txt.png)
+Velocidade do seguimento em função do tempo
+![Imagem 2](circulo/Velocidades-circulo.txt.png) 
+
+O Drone simulado seguio o caminho com a velocidade desejada, que é regulada por meio o Joystick com baixo erro.
 ...
 
 ---
