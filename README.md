@@ -22,7 +22,7 @@ Erro de velocidade no seguimento do caminho em função do tempo
 ![Imagem 2](circulo/Velocidades-circulo.txt.png) 
 
 O Drone simulado seguio o caminho com a velocidade desejada, que é regulada por meio o Joystick com baixo erro.
-...
+
 
 ---
 
@@ -38,7 +38,7 @@ Erro de posição no seguimento do caminho em função do tempo
 ![Imagem 1](lemniscata/Posicoes-lemniscata.txt.png)
 Erro de velocidade no seguimento do caminho em função do tempo
 ![Imagem 2](lemniscata/Velocidades-lemniscata.txt.png)  
-...
+
 
 ---
 
@@ -54,7 +54,7 @@ Erro de posição no seguimento do caminho em função do tempo
 ![Imagem 1](retasconcatenadas/Posicoes-retasconcatenadas.txt.png)  
 Erro de velocidade no seguimento do caminho em função do tempo
 ![Imagem 2](retasconcatenadas/Velocidades-retasconcatenadas.txt.png)  
-...
+
 
 
 ---
@@ -63,7 +63,6 @@ Erro de velocidade no seguimento do caminho em função do tempo
 # Seguimento de Caminho - Restrição de velocidade, aceleração e Jerk
 
 
-...
 
 ## Caminho - 2 waypoints linear
 
@@ -105,7 +104,7 @@ A posição e velocidade são suaves em função do tempo, sem haver descontinui
 ![Imagem 2](2waypoints_3ordem/Velocidades-2waypoints_3ordem.txt.png)  
 ![Imagem 3](2waypoints_3ordem/Orientacoes-2waypoints_3ordem.txt.png)  
 
-...
+
 
 ---
 
@@ -126,7 +125,7 @@ Neste caso, a matriz contendo as posições e restrições é de maior ordem, em
 ![Imagem 2](2waypoints_5ordem/Velocidades-2waypoints_5ordem.txt.png)  
 ![Imagem 3](2waypoints_5ordem/Orientacoes-2waypoints_5ordem.txt.png)  
 
-...
+
 
 
 ---
@@ -149,9 +148,9 @@ Erro de posição no seguimento do caminho em função do tempo
 ![Imagem 1](4waypoints_linear/Posicoes-4waypoints_linear.txt.png)  
 Erro de velocidade no seguimento do caminho em função do tempo, é possivel observar o degrau quando eu solicito fazer a trajetória ao contrario no momento final. Nos outros casos mais complexos a velocidade no final é zero graças as contraints requistadas.
 ![Imagem 2](4waypoints_linear/Velocidades-4waypoints_linear.txt.png)  
-...
 
-...
+
+
 ## Caminho - 4 waypoints ordem cubica
 
 Neste caso, uma matriz contendo as posições e restrições é passada na elaboração do caminho, que possui requisição de posição, velocidade e aceleração. Por limitação da ordem da matriz, não é possivel requisitar variação suave da aceleração, logo o drone vai realizar mudanças de inclinação abruptas para seguir esse modelo.
@@ -171,7 +170,7 @@ A posição e velocidade são suaves em função do tempo, sem haver descontinui
 ![Imagem 2](4waypoints_3ordem/Velocidades-4waypoints_4ordem.txt.png)  
 ![Imagem 3](4waypoints_3ordem/Orientacoes-4waypoints_4ordem.txt.png)  
 
-...
+
 
 ---
 
@@ -192,7 +191,7 @@ Neste caso, a matriz contendo as posições e restrições é de maior ordem, em
 ![Imagem 2](4waypoints_5ordem/Velocidades-4waypoints_5ordem.txt.png)  
 ![Imagem 3](4waypoints_5ordem/Orientacoes-4waypoints_5ordem.txt.png)  
 
-...
+
 
 
 
