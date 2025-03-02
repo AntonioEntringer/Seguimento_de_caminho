@@ -82,7 +82,7 @@ O seguimento não é suave como nos casos seguintes, pois a velocidade é sempre
 Erro de posição no seguimento do caminho em função do tempo
 ![Imagem 1](2waypoints_linear/Posicoes-2waypoints_linear.txt.png)  
 Erro de velocidade no seguimento do caminho em função do tempo, é possivel observar o degrau quando eu solicito fazer a trajetória ao contrario no momento final. Nos outros casos mais complexos a velocidade no final é zero graças as contraints requistadas.
-![Imagem 2](2waypoints_linear/image2.png)  
+![Imagem 2](2waypoints_linear/Velocidades-2waypoints_linear.txt.png)  
 ...
 
 ...
