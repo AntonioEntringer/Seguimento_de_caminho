@@ -167,9 +167,9 @@ A posição e velocidade são suaves em função do tempo, sem haver descontinui
 ![2waypoints_3ordem](4waypoints_3ordem/4waypoints_3ordem.gif)
 
 ### Resultado - Erro de posição, velocidade e orientação
-![Imagem 1](4waypoints_3ordem/Posicoes-2waypoints_4ordem.txt.png)  
-![Imagem 2](4waypoints_3ordem/Velocidades-2waypoints_4ordem.txt.png)  
-![Imagem 3](4waypoints_3ordem/Orientacoes-2waypoints_4ordem.txt.png)  
+![Imagem 1](4waypoints_3ordem/Posicoes-4waypoints_4ordem.txt.png)  
+![Imagem 2](4waypoints_3ordem/Velocidades-4waypoints_4ordem.txt.png)  
+![Imagem 3](4waypoints_3ordem/Orientacoes-4waypoints_4ordem.txt.png)  
 
 ...
 
