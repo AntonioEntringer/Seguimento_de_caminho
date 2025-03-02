@@ -86,7 +86,7 @@ Erro de velocidade no seguimento do caminho em função do tempo, é possivel ob
 ...
 
 ...
-## Caminho - 2 waypoints cubica
+## Caminho - 2 waypoints ordem cubica
 
 Neste caso, uma matriz contendo as posições e restrições é passada na elaboração do caminho, que possui requisição de posição, velocidade e aceleração. Por limitação da ordem da matriz, não é possivel requisitar variação suave da aceleração, logo o drone vai realizar mudanças de inclinação abruptas para seguir esse modelo.
 
@@ -109,22 +109,22 @@ A posição e velocidade são suaves em função do tempo, sem haver descontinui
 
 ---
 
-## Caminho - 2 waypoints 5 ordem
+## Caminho - 2 waypoints 5° ordem
 
 Neste caso, a matriz contendo as posições e restrições é de maior ordem, em que torna possivel solicitar continuidade na variação da aceleração, logo o resultado na variação da aceleração torna-se suave.
 
-![Imagem 1](2waypoints_3ordem/geradordecaminho2waypoints_5ordem.png)  
-![Imagem 2](2waypoints_3ordem/pos_geradordecaminho2waypoints_5ordem.png)  
-![Imagem 3](2waypoints_3ordem/vel_geradordecaminho2waypoints_5ordem.png)  
-![Imagem 4](2waypoints_3ordem/acc_geradordecaminho2waypoints_5ordem.png)  
+![Imagem 1](2waypoints_5ordem/geradordecaminho2waypoints_5ordem.png)  
+![Imagem 2](2waypoints_5ordem/pos_geradordecaminho2waypoints_5ordem.png)  
+![Imagem 3](2waypoints_5ordem/vel_geradordecaminho2waypoints_5ordem.png)  
+![Imagem 4](2waypoints_5ordem/acc_geradordecaminho2waypoints_5ordem.png)  
 
 ### Animação/GIF - Seguimento pelo drone
-![2waypoints_3ordem](2waypoints_3ordem/2waypoints_5ordem.gif)
+![2waypoints_3ordem](2waypoints_5ordem/2waypoints_5ordem.gif)
 
 ### Resultado - Erro de posição, velocidade e orientação
-![Imagem 1](2waypoints_3ordem/Posicoes-2waypoints_5ordem.txt.png)  
-![Imagem 2](2waypoints_3ordem/Velocidades-2waypoints_5ordem.txt.png)  
-![Imagem 3](2waypoints_3ordem/Orientacoes-2waypoints_5ordem.txt.png)  
+![Imagem 1](2waypoints_5ordem/Posicoes-2waypoints_5ordem.txt.png)  
+![Imagem 2](2waypoints_5ordem/Velocidades-2waypoints_5ordem.txt.png)  
+![Imagem 3](2waypoints_5ordem/Orientacoes-2waypoints_5ordem.txt.png)  
 
 ...
 
