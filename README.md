@@ -131,48 +131,69 @@ Neste caso, a matriz contendo as posições e restrições é de maior ordem, em
 
 ---
 
-## 4waypoints_3ordem
+## Caminho - 4 waypoints linear
 
-**Descrição:**  
-(Explique aqui o que esta pasta contém e seu propósito.)
+Semelhante ao exemplo anterior de retas concatenadas, dessa vez a velocidade não é mais definida pelo Joystick multiplicando a norma da direção desejada, mas sim pela definição de tempo passada no momento da geração do caminho, em que cada seguimente carrega consigo a velocidade desejada.
 
-### Animação/GIF
-![4waypoints_3ordem](4waypoints_3ordem/animation.gif)
+Caminho gerado
+![Imagem 1](4waypoints_linear/geradordecaminho2waypoints_linear.png)
+Definição da velocidade que deve ser obedecida no decorrer da trajetória.
+![Imagem 2](4waypoints_linear/vel_geradordecaminho2waypoints_linear.png)  
 
-### Imagens
-![Imagem 1](4waypoints_3ordem/image1.png)  
-![Imagem 2](4waypoints_3ordem/image2.png)  
+### Animação/GIF - Seguimento pelo drone
+O seguimento não é suave como nos casos seguintes, pois a velocidade é sempre constante, existindo então um degrau de velocidade e por consequencia a solicitação de uma aceleração infinita (limitada pelos 10°).
+![2waypoints_linear](4waypoints_linear/2waypoints_linear.gif)
+
+### Resultado - Erro de posição e velocidade
+Erro de posição no seguimento do caminho em função do tempo
+![Imagem 1](4waypoints_linear/Posicoes-2waypoints_linear.txt.png)  
+Erro de velocidade no seguimento do caminho em função do tempo, é possivel observar o degrau quando eu solicito fazer a trajetória ao contrario no momento final. Nos outros casos mais complexos a velocidade no final é zero graças as contraints requistadas.
+![Imagem 2](4waypoints_linear/Velocidades-2waypoints_linear.txt.png)  
+...
+
+...
+## Caminho - 4 waypoints ordem cubica
+
+Neste caso, uma matriz contendo as posições e restrições é passada na elaboração do caminho, que possui requisição de posição, velocidade e aceleração. Por limitação da ordem da matriz, não é possivel requisitar variação suave da aceleração, logo o drone vai realizar mudanças de inclinação abruptas para seguir esse modelo.
+
+![Imagem 1](4waypoints_3ordem/geradordecaminho2waypoints_3ordem.png)  
+![Imagem 2](4waypoints_3ordem/pos_geradordecaminho2waypoints_3ordem.png)  
+![Imagem 3](4waypoints_3ordem/vel_geradordecaminho2waypoints_3ordem.png)  
+![Imagem 4](4waypoints_3ordem/acc_geradordecaminho2waypoints_3ordem.png)  
+
+A posição e velocidade são suaves em função do tempo, sem haver descontinuidade, entretanto em Jerk existe descontinuidade, que resulta na aceleração variar de forma abrupta.
+
+### Animação/GIF - Seguimento pelo drone
+![2waypoints_3ordem](4waypoints_3ordem/2waypoints_3ordem.gif)
+
+### Resultado - Erro de posição, velocidade e orientação
+![Imagem 1](4waypoints_3ordem/Posicoes-2waypoints_3ordem.txt.png)  
+![Imagem 2](4waypoints_3ordem/Velocidades-2waypoints_3ordem.txt.png)  
+![Imagem 3](4waypoints_3ordem/Orientacoes-2waypoints_3ordem.txt.png)  
+
 ...
 
 ---
 
-## 4waypoints_5ordem
+## Caminho - 4 waypoints 5° ordem
 
-**Descrição:**  
-(Explique aqui o que esta pasta contém e seu propósito.)
+Neste caso, a matriz contendo as posições e restrições é de maior ordem, em que torna possivel solicitar continuidade na variação da aceleração, logo o resultado na variação da aceleração torna-se suave.
 
-### Animação/GIF
-![4waypoints_5ordem](4waypoints_5ordem/animation.gif)
+![Imagem 1](4waypoints_5ordem/geradordecaminho2waypoints_5ordem.png)  
+![Imagem 2](4waypoints_5ordem/pos_geradordecaminho2waypoints_5ordem.png)  
+![Imagem 3](4waypoints_5ordem/vel_geradordecaminho2waypoints_5ordem.png)  
+![Imagem 4](4waypoints_5ordem/acc_geradordecaminho2waypoints_5ordem.png)  
 
-### Imagens
-![Imagem 1](4waypoints_5ordem/image1.png)  
-![Imagem 2](4waypoints_5ordem/image2.png)  
+### Animação/GIF - Seguimento pelo drone
+![2waypoints_3ordem](4waypoints_5ordem/2waypoints_5ordem.gif)
+
+### Resultado - Erro de posição, velocidade e orientação
+![Imagem 1](4waypoints_5ordem/Posicoes-2waypoints_5ordem.txt.png)  
+![Imagem 2](4waypoints_5ordem/Velocidades-2waypoints_5ordem.txt.png)  
+![Imagem 3](4waypoints_5ordem/Orientacoes-2waypoints_5ordem.txt.png)  
+
 ...
 
----
-
-## 4waypoints_linear
-
-**Descrição:**  
-(Explique aqui o que esta pasta contém e seu propósito.)
-
-### Animação/GIF
-![4waypoints_linear](4waypoints_linear/animation.gif)
-
-### Imagens
-![Imagem 1](4waypoints_linear/image1.png)  
-![Imagem 2](4waypoints_linear/image2.png)  
-...
 
 
 ---
