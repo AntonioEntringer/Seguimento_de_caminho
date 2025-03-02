@@ -21,7 +21,7 @@ Erro de posição no seguimento do caminho em função do tempo
 Erro de velocidade no seguimento do caminho em função do tempo
 ![Imagem 2](circulo/Velocidades-circulo.txt.png) 
 
-O Drone simulado seguio o caminho com a velocidade desejada, que é regulada por meio o Joystick com baixo erro.
+O Drone simulado seguio o caminho com a velocidade desejada, que é regulada por meio o Joystick com baixo erro. Como eu solicitei pelo Joystick uma velocidade elevada, acabou por estourar a escala do grafico de velocidade.
 
 
 ---
@@ -52,7 +52,7 @@ Erro de velocidade no seguimento do caminho em função do tempo
 ### Resultado - Erro de posição e velocidade
 Erro de posição no seguimento do caminho em função do tempo
 ![Imagem 1](retasconcatenadas/Posicoes-retasconcatenadas.txt.png)  
-Erro de velocidade no seguimento do caminho em função do tempo
+Erro de velocidade no seguimento do caminho em função do tempo, durante o experimento, eu resolvi trafegar sobre o caminho com o drone para frente e para trás, por esse motivo tantas variações de velocidade.
 ![Imagem 2](retasconcatenadas/Velocidades-retasconcatenadas.txt.png)  
 
 
@@ -66,15 +66,15 @@ Erro de velocidade no seguimento do caminho em função do tempo
 
 ## Caminho - 2 waypoints linear
 
-Semelhante ao exemplo anterior de retas concatenadas, dessa vez a velocidade não é mais definida pelo Joystick multiplicando a norma da direção desejada, mas sim pela definição de tempo passada no momento da geração do caminho, em que cada seguimente carrega consigo a velocidade desejada.
+Semelhante ao exemplo anterior de retas concatenadas, dessa vez a velocidade não é mais definida pelo Joystick multiplicando a norma da direção desejada, mas sim pela definição de tempo passada no momento da geração do caminho, em que cada seguimente carrega consigo a velocidade desejada. Entretanto, mantive a caracteristca de poder controlar com o Joystick para poder trafegar ao contrario o caminho, mas a velocidade não é mais um vetor unitário.
 
 Caminho gerado
 ![Imagem 1](2waypoints_linear/geradordecaminho2waypoints_linear.png)
-Definição da velocidade que deve ser obedecida no decorrer da trajetória.
+Definição da velocidade que deve ser obedecida no decorrer da trajetória, como não existe nenhuma restrição, ela assume o maior valor logo em tempo igual zero.
 ![Imagem 2](2waypoints_linear/vel_geradordecaminho2waypoints_linear.png)  
 
 ### Animação/GIF - Seguimento pelo drone
-O seguimento não é suave como nos casos seguintes, pois a velocidade é sempre constante, existindo então um degrau de velocidade e por consequencia a solicitação de uma aceleração infinita (limitada pelos 10°).
+O seguimento não é suave como nos casos seguintes, pois a velocidade é sempre constante, existindo então um degrau de velocidade no inicio do seguimento, e por consequencia a solicitação de uma aceleração infinita (limitada pelos 10°), ou seja, uma descontinuidade na aceleração.
 ![2waypoints_linear](2waypoints_linear/2waypoints_linear.gif)
 
 ### Resultado - Erro de posição e velocidade
@@ -101,7 +101,9 @@ A posição e velocidade são suaves em função do tempo, sem haver descontinui
 
 ### Resultado - Erro de posição, velocidade e orientação
 ![Imagem 1](2waypoints_3ordem/Posicoes-2waypoints_3ordem.txt.png)  
-![Imagem 2](2waypoints_3ordem/Velocidades-2waypoints_3ordem.txt.png)  
+As variações abruptas são resultados da troca de sentido pelo Joystick.
+![Imagem 2](2waypoints_3ordem/Velocidades-2waypoints_3ordem.txt.png) 
+Neste caso, deixei o grafico do erro de orientação, que mostra como ela converge quando é solicitado uma mudança. É possivel observar que o drone satura os 100° até chegar perto da orientação desejada, o ganho de orientação está alto, em um modelo real isso não é interessante por demandar muita energia.
 ![Imagem 3](2waypoints_3ordem/Orientacoes-2waypoints_3ordem.txt.png)  
 
 
@@ -118,6 +120,7 @@ Neste caso, a matriz contendo as posições e restrições é de maior ordem, em
 ![Imagem 4](2waypoints_5ordem/acc_geradordecaminho2waypoints_5ordem.png)  
 
 ### Animação/GIF - Seguimento pelo drone
+É possivel observar como o inicio e o fim da trajetória ocorrem de forma suave, sendo a maior velocidade exercida pelo drone proxima ao centro. Utilizando um caminho calculado por esse método o drone nao vai realizar troca abrupta de angulo, assim, economizando energia e sendo suave.
 ![2waypoints_3ordem](2waypoints_5ordem/2waypoints_5ordem.gif)
 
 ### Resultado - Erro de posição, velocidade e orientação
@@ -132,7 +135,7 @@ Neste caso, a matriz contendo as posições e restrições é de maior ordem, em
 
 ## Caminho - 4 waypoints linear
 
-Semelhante ao exemplo anterior de retas concatenadas, dessa vez a velocidade não é mais definida pelo Joystick multiplicando a norma da direção desejada, mas sim pela definição de tempo passada no momento da geração do caminho, em que cada seguimente carrega consigo a velocidade desejada.
+Assim como no caso dos 2 waypoints, a velocidade respeita apenas o valor que deve ser assumido para chegar de um ponto ao outro, existindo descontinuidade na aceleração.
 
 Caminho gerado
 ![Imagem 1](4waypoints_linear/geradordecaminho4waypoints_linear.png)
@@ -141,7 +144,7 @@ Definição da velocidade que deve ser obedecida no decorrer da trajetória.
 
 ### Animação/GIF - Seguimento pelo drone
 O seguimento não é suave como nos casos seguintes, pois a velocidade é sempre constante, existindo então um degrau de velocidade e por consequencia a solicitação de uma aceleração infinita (limitada pelos 10°).
-![2waypoints_linear](4waypoints_linear/4waypoints_linear.gif)
+![4waypoints_linear](4waypoints_linear/4waypoints_linear.gif)
 
 ### Resultado - Erro de posição e velocidade
 Erro de posição no seguimento do caminho em função do tempo
@@ -160,14 +163,16 @@ Neste caso, uma matriz contendo as posições e restrições é passada na elabo
 ![Imagem 3](4waypoints_3ordem/vel_geradordecaminho4waypoints_3ordem.png)  
 ![Imagem 4](4waypoints_3ordem/acc_geradordecaminho4waypoints_3ordem.png)  
 
-A posição e velocidade são suaves em função do tempo, sem haver descontinuidade, entretanto em Jerk existe descontinuidade, que resulta na aceleração variar de forma abrupta.
+A posição e velocidade são suaves em função do tempo, sem haver descontinuidade, entretanto em Jerk existe descontinuidade, que resulta na aceleração variar de forma abrupta entre os waypoints.
 
 ### Animação/GIF - Seguimento pelo drone
 ![2waypoints_3ordem](4waypoints_3ordem/4waypoints_3ordem.gif)
 
 ### Resultado - Erro de posição, velocidade e orientação
-![Imagem 1](4waypoints_3ordem/Posicoes-4waypoints_4ordem.txt.png)  
-![Imagem 2](4waypoints_3ordem/Velocidades-4waypoints_4ordem.txt.png)  
+![Imagem 1](4waypoints_3ordem/Posicoes-4waypoints_4ordem.txt.png)
+Graças as restrições, a velocidade é suave.
+![Imagem 2](4waypoints_3ordem/Velocidades-4waypoints_4ordem.txt.png)
+Entretanto com polinonio de ordem cubica não é possivel tornar a variação da aceleração constante, em Jerk existe descontinuidade, que é corrigida em polinomio de maior ordem e sua devida constraint. 
 ![Imagem 3](4waypoints_3ordem/Orientacoes-4waypoints_4ordem.txt.png)  
 
 
@@ -192,22 +197,17 @@ Neste caso, a matriz contendo as posições e restrições é de maior ordem, em
 ![Imagem 3](4waypoints_5ordem/Orientacoes-4waypoints_5ordem.txt.png)  
 
 
-
-
-
 ---
 
 ## PolePlance_and_LQR.m
 
-**Descrição:**  
-(Este arquivo MATLAB contém a implementação dos controladores Pole Placement e LQR.)
+O codigo utilizado para escolher os ganhos utilizado nas simulações está em anexo nesse repositório
 
 ---
 
 ## Simulador3d_for_spacestates_caminho.m
 
-**Descrição:**  
-(Este script MATLAB simula o comportamento 3D do drone utilizando modelos de espaço de estados.)
+Script utilizado para realizar as simulações em espaço de estados.
 
 ---
 
