@@ -15,10 +15,10 @@ Não existe nenhuma restrição de tempo para essa abordagem, foram gerados 1000
 Seguimento do circulo representado graficamente. Detalhe para a orientação do drone simulado representado pelo eixo cordenado, em que Vermelho, Azul e Verde representam X,Y e Z respectivamente.
 ![circulo](circulo/circulo.gif)
 
-### Imagens
-Posições do seguimento em função do tempo
+### Resultado - Erro de posição e velocidade
+Erro de posição no seguimento do caminho em função do tempo
 ![Imagem 1](circulo/Posicoes-circulo.txt.png)
-Velocidade do seguimento em função do tempo
+Erro de velocidade no seguimento do caminho em função do tempo
 ![Imagem 2](circulo/Velocidades-circulo.txt.png) 
 
 O Drone simulado seguio o caminho com a velocidade desejada, que é regulada por meio o Joystick com baixo erro.
@@ -26,32 +26,34 @@ O Drone simulado seguio o caminho com a velocidade desejada, que é regulada por
 
 ---
 
-## lemniscata
+## Lemniscata
 
-**Descrição:**  
-(Explique aqui o que esta pasta contém e seu propósito.)
+Novamente nao existe nenhuma restrição de tempo, o drone simulado percorre o caminho seguindo a velocidade escolhida pela analogico do Joystick, podendo ser pausado ou tendo o sentido invertido.
 
 ### Animação/GIF
-![lemniscata](lemniscata/animation.gif)
+![lemniscata](lemniscata/lemniscata.gif)
 
-### Imagens
-![Imagem 1](lemniscata/image1.png)  
-![Imagem 2](lemniscata/image2.png)  
+### Resultado - Erro de posição e velocidade
+Erro de posição no seguimento do caminho em função do tempo
+![Imagem 1](lemniscata/Posicoes-lemniscata.txt.png)
+Erro de velocidade no seguimento do caminho em função do tempo
+![Imagem 2](lemniscata/Velocidades-lemniscata.txt.png)  
 ...
 
 ---
 
-## retasconcatenadas
+## Retas concatenadas
 
-**Descrição:**  
-(Explique aqui o que esta pasta contém e seu propósito.)
+3 retas foram calculadas com pontos que preenchem o caminho entre elas, assim como no exemplo anterior, nenhuma restrição de tempo.
 
 ### Animação/GIF
-![retasconcatenadas](retasconcatenadas/animation.gif)
+![retasconcatenadas](retasconcatenadas/retasconcatenadas.gif)
 
-### Imagens
-![Imagem 1](retasconcatenadas/image1.png)  
-![Imagem 2](retasconcatenadas/image2.png)  
+### Resultado - Erro de posição e velocidade
+Erro de posição no seguimento do caminho em função do tempo
+![Imagem 1](retasconcatenadas/Posicoes-retasconcatenadas.txt.png)  
+Erro de velocidade no seguimento do caminho em função do tempo
+![Imagem 2](retasconcatenadas/Velocidades-retasconcatenadas.txt.png)  
 ...
 
 
