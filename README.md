@@ -100,6 +100,7 @@ A posição e a velocidade são suaves ao longo do tempo, mas há descontinuidad
 
 ### Animação/GIF – Seguimento pelo Drone
 <img src="2waypoints_3ordem/2waypoints_3ordem.gif" alt="Animação – 2 Waypoints Ordem Cúbica" width="600" />
+O seguimento do caminho foi iniciado mais proximo a um ponto intermediario do que de uma extremidade, logo a velocidade inicial não foi igual a zero, mesmo no caso de modelagem de 3° e 5° ordem não foram iguais a zero na simulação devido a posição inicial do drone. Entretanto, forcei pelo Joystick que o drone seguisse todo o caminho fazendo ele percorrer em sentido contrario. 
 
 ### Resultado – Erro de Posição, Velocidade e Orientação
 **Erro de posição:**  
@@ -107,6 +108,7 @@ A posição e a velocidade são suaves ao longo do tempo, mas há descontinuidad
 
 **Erro de velocidade:**  
 <img src="2waypoints_3ordem/Velocidades-2waypoints_3ordem.txt.png" alt="Erro de Velocidade – 2 Waypoints Ordem Cúbica" width="600" />
+Nenhuma descontinuidade de velocidade existe durante a interpolação dos waypoints. A descontinuidade observada na velocidade é resultado da inversão do sentido do movimento pelo joystick. No GIF, essas mudanças são observaveis nos instantes t = 2.8s e t = 7.2s. Se a inversão de sentido fosse no final do caminho, a velocidade final de um movimento seria zero, e a velocidade inicial do próximo movimento também começaria em zero. Dessa forma, eliminaria-se a descontinuidade. No planejamento do caminho é apresentado que a velocidade final e inicial é igual a zero. 
 
 **Erro de orientação:**  
 
@@ -124,6 +126,7 @@ Nesta abordagem, a matriz de posições e restrições é de ordem superior, per
 <img src="2waypoints_5ordem/pos_geradordecaminho2waypoints_5ordem.png" alt="Posição – 2 Waypoints 5ª Ordem" width="600" />
 <img src="2waypoints_5ordem/vel_geradordecaminho2waypoints_5ordem.png" alt="Velocidade – 2 Waypoints 5ª Ordem" width="600" />
 <img src="2waypoints_5ordem/acc_geradordecaminho2waypoints_5ordem.png" alt="Aceleração – 2 Waypoints 5ª Ordem" width="600" />
+Ao contrário do caso de 3ª ordem, no em 5ª ordem, considera-se restrições não apenas na posição e velocidade, mas também na aceleração e no jerk (continuidade). Como resultado, a aceleração inicial é zero, o que evita que o drone execute movimentos abruptos para compensar variações rápidas na aceleração.
 
 ### Animação/GIF – Seguimento pelo Drone
 
@@ -149,15 +152,16 @@ Nesta abordagem, a velocidade respeita apenas o valor necessário para ir de um 
 <img src="4waypoints_linear/vel_geradordecaminho4waypoints_linear.png" alt="Velocidade – 4 Waypoints Linear" width="600" />
 
 ### Animação/GIF – Seguimento pelo Drone
-Devido à velocidade constante, há um degrau que implica aceleração infinita (limitada pelos 10°).
+Devido à velocidade constante, há um degrau que implica aceleração infinita (limitada pelos 10° de tilt maximo do drone).
 <img src="4waypoints_linear/4waypoints_linear.gif" alt="Animação – 4 Waypoints Linear" width="600" />
+É possivel observar como o drone sofre para poder acompanhar o caminho gerado, visto que a aceleração entre as "retas" é infinita.
 
 ### Resultado – Erro de Posição e Velocidade
 **Erro de posição:**  
 <img src="4waypoints_linear/Posicoes-4waypoints_linear.txt.png" alt="Erro de Posição – 4 Waypoints Linear" width="600" />
 
 **Erro de velocidade:**  
-É possível observar o degrau quando a trajetória é invertida; nos casos mais complexos, a velocidade final é zero graças às constraints.
+É possível observar o degrau quando a trajetória é invertida e quando passa por cada um dos waypoints, nos casos mais complexos, a velocidade final é zero graças às constraints que não possiveis de aplicar na caminho elaborado linearmente.
 <img src="4waypoints_linear/Velocidades-4waypoints_linear.txt.png" alt="Erro de Velocidade – 4 Waypoints Linear" width="600" />
 
 ---
@@ -171,7 +175,7 @@ Neste caso, utiliza-se uma matriz de posições e restrições para gerar o cami
 <img src="4waypoints_3ordem/vel_geradordecaminho4waypoints_3ordem.png" alt="Velocidade – 4 Waypoints Ordem Cúbica" width="600" />
 <img src="4waypoints_3ordem/acc_geradordecaminho4waypoints_3ordem.png" alt="Aceleração – 4 Waypoints Ordem Cúbica" width="600" />
 
-A posição e a velocidade são suaves, mas o jerk apresenta descontinuidade, ocasionando variações abruptas na aceleração entre os waypoints.
+A posição e a velocidade são suaves, mas o jerk apresenta descontinuidade, ocasionando variações abruptas na aceleração entre os waypoints. Além disso, a aceleração inicial não é zero, pois não é possivel acrescentar essa constraint.
 
 ### Animação/GIF – Seguimento pelo Drone
 <img src="4waypoints_3ordem/4waypoints_3ordem.gif" alt="Animação – 4 Waypoints Ordem Cúbica" width="600" />
@@ -182,9 +186,9 @@ A posição e a velocidade são suaves, mas o jerk apresenta descontinuidade, oc
 
 **Erro de velocidade:**  
 <img src="4waypoints_3ordem/Velocidades-4waypoints_3ordem.txt.png" alt="Erro de Velocidade – 4 Waypoints Ordem Cúbica" width="600" />
+Entre os waypoints não existe nenhuma descontinuidade, a unica descontinuidade existente é na velocidade em t=11 aproximadamente, ela é fruto da variação de sentido do seguimento de caminho por meio do joystick. O final do seguimento em t=23 é suave como é previsto pelas contraints e pela velocidade e aceleração desejada apresentadas no planejamento acima. 
 
 **Erro de orientação:**  
-Com polinômio de ordem cúbica, não é possível obter variação constante da aceleração; o jerk apresenta descontinuidade, corrigido em polinômios de ordem superior com constraints apropriadas.
 <img src="4waypoints_3ordem/Orientacoes-4waypoints_3ordem.txt.png" alt="Erro de Orientação – 4 Waypoints Ordem Cúbica" width="600" />
 
 ---
@@ -197,9 +201,11 @@ Nesta abordagem, a matriz de posições e restrições é de ordem superior, per
 <img src="4waypoints_5ordem/pos_geradordecaminho4waypoints_5ordem.png" alt="Posição – 4 Waypoints 5ª Ordem" width="600" />
 <img src="4waypoints_5ordem/vel_geradordecaminho4waypoints_5ordem.png" alt="Velocidade – 4 Waypoints 5ª Ordem" width="600" />
 <img src="4waypoints_5ordem/acc_geradordecaminho4waypoints_5ordem.png" alt="Aceleração – 4 Waypoints 5ª Ordem" width="600" />
+Como é possivel observar, entre os waypoints não existe nenhuma descontinuidade, A aceleração e velocidade inicial são iguais a zero.
 
 ### Animação/GIF – Seguimento pelo Drone
 <img src="4waypoints_5ordem/4waypoints_5ordem.gif" alt="Animação – 4 Waypoints 5ª Ordem" width="600" />
+É possivel observar como o seguimento é suave no inicio e fim graças as constraints em Jerk e Aceleração.
 
 ### Resultado – Erro de Posição, Velocidade e Orientação
 **Erro de posição:**  
@@ -225,5 +231,10 @@ Script utilizado para realizar as simulações em espaço de estados.
 
 ---
 
-*Observação:*  
-Substitua os textos entre parênteses com descrições detalhadas conforme sua necessidade. Certifique-se de que os nomes dos arquivos de imagem e GIF estejam corretos e correspondam aos nomes reais presentes em cada pasta.
+
+## Equações para elaboração das matrizes A
+
+As equações para elaborar as matrizes que contem os waypoints e todas as contraints possiveis para a modelagem estão presentes nas imagens a seguir. Por meio dessa analize foram feitas as matrizes para cada caso.
+<img src="Equações_Matriz_A/imagem1.jpeg" alt="Definição matrizes ordem cubica" width="600" />
+<img src="Equações_Matriz_A/imagem1.jpeg" alt="Definição matrizes 5ª Ordem" width="600" />
+
