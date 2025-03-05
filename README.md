@@ -235,6 +235,6 @@ Script utilizado para realizar as simulações em espaço de estados.
 ## Equações para elaboração das matrizes A
 
 As equações para elaborar as matrizes que contem os waypoints e todas as contraints possiveis para a modelagem estão presentes nas imagens a seguir. Por meio dessa analize foram feitas as matrizes para cada caso.
-<img src="Equações_Matriz_A/imagem1.jpeg" alt="Definição matrizes ordem cubica" width="600" />
+<img src="Equações_Matriz_A/imagem2.jpeg" alt="Definição matrizes ordem cubica" width="600" />
 <img src="Equações_Matriz_A/imagem1.jpeg" alt="Definição matrizes 5ª Ordem" width="600" />
 
